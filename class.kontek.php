@@ -9,7 +9,10 @@ class kontek {
             projectId mediumint(9) NOT NULL,
             PRIMARY KEY(projectId),
             tagNumber varchar(16) NOT NULL, 
-            
+            partDescription varchar (111), 
+            location varchar(116), 
+            partNumber varchar(27), 
+            UnitSellPrice Decimal(19,4)
         ) $charset_collate;";
 
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php');
