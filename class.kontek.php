@@ -5,6 +5,7 @@ class kontek {
         $table_name = $wpdb->prefix . "kontekParts";
         $charset_collate = $wpdb->get_charset_collate();
 
+        // CREATE PARTS DATABASE
         $sql = "CREATE TABLE IF NOT EXISTS $table_name (
             projectId mediumint(9) NOT NULL,
             PRIMARY KEY(projectId),
@@ -16,7 +17,17 @@ class kontek {
         ) $charset_collate;";
 
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php');
-        dbDelta( $sql );
+        dbDelta( $sql ); 
+    }
+    public static function plugin_deactivation() {
+
+    }
+
+    public static function plugin_uninstall() {
+        $sql = "DROP TABLE $table_name";
+        
+        require_once( ABSPATH . 'wp-admin/includes/upgrade.php');
+        dbDelta( $sql ); 
     }
     
 }

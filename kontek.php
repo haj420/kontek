@@ -33,6 +33,7 @@ define( 'KONTEK__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 
 register_activation_hook( __FILE__, array( 'Kontek', 'plugin_activation' ) );
 register_deactivation_hook( __FILE__, array( 'Kontek', 'plugin_deactivation' ) );
+register_uninstall_hook(__FILE__, 'Kontek', array('plugin_uninstall') );
 
 require_once( KONTEK__PLUGIN_DIR . 'class.kontek.php' );
 
